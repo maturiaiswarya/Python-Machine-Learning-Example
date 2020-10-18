@@ -1,0 +1,93 @@
+import numpy as np
+from numpy import random 
+
+to create an array - np.array(a)
+
+
+arr = np.array([1, 2, 3, 4], ndmin=5)
+dimensions - a.ndim
+
+to access the elements in the array -  arr[0, 1] and to access the last element - arr[1, -1]
+slicing : 
+arr=[1,2,3,4,5,6,7]
+
+arr[1:6:2] - [2,4,6]	
+
+data type: arr.dtype
+i - integer
+b - boolean
+u - unsigned integer
+f - float
+c - complex float
+m - timedelta
+M - datetime
+O - object
+S - string
+U - unicode string
+V - fixed chunk of memory for other type ( void )
+
+newarr = arr.astype('i') copy array and change the type
+
+copy() - copies and has its own set of data x.base - will return none
+view() - points to the original data and x.base- will return the original array
+
+shape of the array :
+arr.shape =(2,3) arr=[[1,2,3],[4,5,6]]
+reshape the array - arr.reshape(5, 3) - returns a view - -1 can be used to reshape 
+
+np.nditer(arr) - used for iterating through the elements 
+np.nditer(arr, flags=['buffered'], op_dtypes=['S']): - change the data type and print
+
+for idx, x in np.ndenumerate(arr):
+  print(idx, x) - idx mentions row and column 
+
+  
+  np.concatenate((test1,test2),axis=0) - axis is specified to concatenate it length wise or breadth wise
+  
+  stack,hstack,vstack,dstack - have to get a good understanding
+
+
+split and array_split (arr,number) - splits the given array into given number of arrays 
+split - it will not adjust the elements when elements are less in source array while array_split adjusts the elements 
+
+
+np.where(arr == 4) -indexes where the element appears
+
+np.searchsorted(arr, 7) - places 7 in the position in such way the value is no longer larger than the next value.
+
+np.sort(arr) -sorts the array 
+
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+
+filter_arr = arr % 2 == 0 ----> creates an array of boolean values 
+
+newarr = arr[filter_arr] ----> creates an array of values from the arr of all the indexes where ever there are true in filter_arr   
+
+print(filter_arr)
+print(newarr)
+
+
+RANDOM :
+from numpy import random
+r = random.randint(100)
+x=random.randint(100, size=(5)) 
+x= random.rand(5) ------> gives float value between 0 to 1 and gives 5 values of it
+x = random.choice([3, 5, 7, 9], size=(3, 5)) -------> selectts randomly from the list of values
+
+x = random.choice([3, 5, 7, 9], p=[1, 0.0, 0.0, 0.0], size=(100)) - > we can mention the probibility with which the values get choosen too
+random.shuffle(arr)- shuffles the elements in the array where as random.permutation(arr) doesnt change the original array
+
+
+SEABORN:
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.distplot([0, 1, 2, 3, 4, 5], hist=False)
+
+plt.show()
+
+
+
